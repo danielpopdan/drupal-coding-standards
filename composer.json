@@ -7,6 +7,6 @@
     "drupal/coder": "^7.2"
   },
   "scripts": {
-    "post-install-cmd": "scripts/composer/post-install.sh"
+    "post-install-cmd": "/scripts/composer/post-install.sh"
   }
 }
