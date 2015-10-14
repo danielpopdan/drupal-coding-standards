@@ -72,7 +72,10 @@ Please add the script to your composer.json file:
 }
 ```
 
-The final step of the installation is to add the [Drupal Code Sniffer Ruleset](https://github.com/danielpopdan/drupal-coding-standards/blob/master/drupalcs.xml),
+Adding the Rule Set
+=====
+
+The final step is to add the [Drupal Code Sniffer Ruleset](https://github.com/danielpopdan/drupal-coding-standards/blob/master/drupalcs.xml),
 because you probably have some files you don't want to be parsed.
 
 The rule set contains two very important tags, <exclude-pattern> and <arg>.
@@ -92,5 +95,10 @@ for example:
 ```
 
 That will be passed as `--standard=Drupal`. 
+
+Every time you make a composer update this file will be overridden, so the best 
+way to keep your configuration is to copy that file to your root directory of 
+the Drupal project. The pre-push hook will check the file from your root every
+time.
 
 
