@@ -72,6 +72,12 @@ Please add the script to your composer.json file:
 }
 ```
 
+Now you can run composer install:
+
+```
+composer install
+```
+
 Adding the Rule Set
 =====
 
