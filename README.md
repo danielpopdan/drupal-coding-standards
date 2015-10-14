@@ -25,7 +25,7 @@ Add Drupal Coding Standards to your composer.json:
 *Option 1:* 
 
 ```
-composer require drupal-standards/drupal-coding-standards:7.0.x-dev
+composer require drupal-standards/drupal-coding-standards:8.0.x-dev
 ```
 
 *Option 2:*
@@ -35,7 +35,7 @@ composer require drupal-standards/drupal-coding-standards:7.0.x-dev
 ```
 {
   "require": {
-    "drupal-standards/drupal-coding-standards": "7.0.x-dev"
+    "drupal-standards/drupal-coding-standards": "8.0.x-dev"
   }
 }
 ```

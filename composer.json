@@ -4,6 +4,6 @@
   "keywords": ["drupal","coding", "standards"],
   "description": "Creates a pre-push git hook that checks the Drupal coding standards.",
   "require": {
-    "drupal/coder": "^7.2"
+    "drupal/coder": "^8.2"
   }
 }

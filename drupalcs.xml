@@ -21,37 +21,11 @@
     <!-- Exclude the `vendor` folder. -->
     <exclude-pattern>vendor/</exclude-pattern>
     <!-- Exclude the drupal default folders. -->
-    <exclude-pattern>includes/</exclude-pattern>
-    <exclude-pattern>misc/</exclude-pattern>
-    <exclude-pattern>modules/</exclude-pattern>
-    <exclude-pattern>profiles/minimal/</exclude-pattern>
-    <exclude-pattern>profiles/standard/</exclude-pattern>
-    <exclude-pattern>profiles/testing/</exclude-pattern>
-    <exclude-pattern>scripts/</exclude-pattern>
-    <exclude-pattern>sites/all/modules/contrib/</exclude-pattern>
-    <exclude-pattern>sites/all/libraries/</exclude-pattern>
+    <exclude-pattern>core/</exclude-pattern>
     <exclude-pattern>sites/default/</exclude-pattern>
-    <exclude-pattern>themes/</exclude-pattern>
-    <exclude-pattern>authorize.php</exclude-pattern>
-    <exclude-pattern>cron.php</exclude-pattern>
-    <exclude-pattern>index.php</exclude-pattern>
-    <exclude-pattern>install.php</exclude-pattern>
-    <exclude-pattern>update.php</exclude-pattern>
-    <exclude-pattern>xmlrpc.php</exclude-pattern>
-    <!-- Exclude features generated files -->
-    <exclude-pattern>*.features.inc</exclude-pattern>
-    <exclude-pattern>*.context.inc</exclude-pattern>
-    <exclude-pattern>*.features.field_base.inc</exclude-pattern>
-    <exclude-pattern>*.features.field_instance.inc</exclude-pattern>
-    <exclude-pattern>*.features.taxonomy.inc</exclude-pattern>
-    <exclude-pattern>*.features.fe_block_settings.inc</exclude-pattern>
-    <exclude-pattern>*.features.filter.inc</exclude-pattern>
-    <exclude-pattern>*.field_group.inc</exclude-pattern>
-    <exclude-pattern>*.views_default.inc</exclude-pattern>
-    <exclude-pattern>*.strongarm.inc</exclude-pattern>
 
     <!-- PHP CodeSniffer command line options -->
-    <arg name="extensions" value="php,css,js,module,theme,info,install,inc,profile"/>
+    <arg name="extensions" value="php,css,js,module,theme,info,install,profile,yml"/>
     <arg name="report" value="full"/>
     <arg name="standard" value="Drupal"/>
     <arg value="p"/>
