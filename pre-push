@@ -37,10 +37,10 @@ $file_list = array_unique(array_filter($file_list, function ($file) {
   return !empty($file) && file_exists($file);
 }));
 
-// If a phpcs.xml file is present and contains a list of extensions, remove all
+// If a drupalcs.xml file is present and contains a list of extensions, remove all
 // files that do not match the extensions from the list.
-if (file_exists('phpcs.xml')) {
-  $configuration = simplexml_load_file('phpcs.xml');
+if (file_exists('drupalcs.xml')) {
+  $configuration = simplexml_load_file('drupalcs.xml');
   $extensions = [];
   foreach ($configuration->xpath('/ruleset/arg[@name="extensions"]') as $argument) {
     // The list of extensions is comma separated.
@@ -103,11 +103,11 @@ if (empty($file_list)) {
 }
 
 // Get the path to the PHP CodeSniffer binary from composer.json.
-$command = getcwd() . '/vendor/bin/phpcs';
+$command = getcwd() . '/vendor/bin/drupalcs';
 if ($composer_json = json_decode(file_get_contents(getcwd() . '/composer.json'))) {
   if (!empty($composer_json->config->{'bin-dir'})) {
     $bin_dir = escapeshellcmd(trim($composer_json->config->{'bin-dir'}, '/'));
-    $command = getcwd() . '/' . $bin_dir . '/phpcs';
+    $command = getcwd() . '/' . $bin_dir . '/drupalcs';
   }
 }
 
