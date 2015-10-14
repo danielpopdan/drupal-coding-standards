@@ -44,7 +44,7 @@ A post install scripts is needed to symlink the pre-push file of the
 library with the git pre-push file and to register the Drupal Coding Standards.
 Because of security issues, composer doesn't execute post install scripts of 
 dependencies, so you will have to add this script to your composer.json. Please 
-add the [post install script](https://github.com/danielpopdan/drupal-coding-standards/blob/master/scripts/composer/post-install.sh)
+add the [post install script](https://github.com/danielpopdan/drupal-coding-standards/blob/7.0.x/scripts/composer/post-install.sh)
 to scripts/composer directory of your Drupal project root, in the
 post-install.sh file. 
 
@@ -81,7 +81,7 @@ composer install
 Adding the Rule Set
 =====
 
-The final step is to add the [Drupal Code Sniffer Ruleset](https://github.com/danielpopdan/drupal-coding-standards/blob/master/drupalcs.xml),
+The final step is to add the [Drupal Code Sniffer Ruleset](https://github.com/danielpopdan/drupal-coding-standards/blob/7.0.x/drupalcs.xml),
 because you probably have some files you don't want to be parsed.
 
 The rule set contains two very important tags, <exclude-pattern> and <arg>.
