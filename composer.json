@@ -1,5 +1,5 @@
 {
-  "name": "drupal/drupal-coding-standards",
+  "name": "drupal-standards/drupal-coding-standards",
   "type": "library",
   "keywords": ["drupal","coding", "standards"],
   "description": "Creates a pre-push git hook that checks the Drupal coding standards.",
