@@ -1,62 +1,76 @@
 About
 =====
 
-This is a git pre-push hook intended to help developers keep their Drupal code
-base clean by performing a scan with Drupal Coder whenever new code is
+This is a git pre-push hook intended to help Drupal developers to keep the base 
+clean by performing a scan with Drupal Coder whenever new code is
 pushed to the repository. When any coding standards violations are present the
 push is rejected, allowing the developer to fix the code before making it
 public.
 
 To increase performance only the changed files are checked when new code is
-pushed to an existing branch.  Whenever a new branch is pushed, a full coding
-standards check is performed.
+pushed to repository. Note that the full file will be checked, so if you didn't
+use this library from the beginning you can get errors from the past.
 
-If your project enforces the use of a coding standard then this will help with
-that, but it is easy to circumvent since the pre-push hook can simply be
-deleted. You might want to implement similar functionality in a pre-receive
-hook on the server side, or include a coding standards check in your continuous
-integration pipeline.
+With this library you can make the code review step more quickly, letting the 
+reviewers just to concentrate on the logic of the project. If you don't want to
+use this anymore, you can easily delete the `pre-push` hook from `.git/hooks/` 
+folder. If you notice any issue, please let us know on GitHub issue page of the
+project `https://github.com/danielpopdan/drupal-coding-standards/issues` .
 
 
-Usage
+Installation
 =====
 
-Add Coder and this gist to your composer.json:
+Add Drupal Coding Standards to your composer.json:
+
+*Option 1* 
+
+```
+composer require drupal-standards/drupal-coding-standards:dev-master
+```
+
+*Option 2*
 
 **`composer.json`**
 
 ```
 {
-  "require-dev": {
-    "drupal-pfrenssen/phpcs-pre-push": "1.0"
-  },
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "drupal-pfrenssen/phpcs-pre-push",
-        "version": "1.0",
-        "source": {
-          "url": "https://gist.github.com/990f9521f84d693ccd1a.git",
-          "type": "git",
-          "reference": "master"
-        }
-      }
-    }
-  ],
-  "scripts": {
-    "post-install-cmd": "scripts/composer/post-install.sh"
-  },
   "require": {
-    "drupal/coder": "^7.2"
+    "drupal-standards/drupal-coding-standards": "dev-master"
   }
 }
-
-For Drupal 8 please include "drupal/coder": "^8.2".
 ```
 
-Create a post-install script that will symlink the pre-push inside your git
-repository whenever you do a `composer install`:
+Some post install scripts are needed to symlink the pre-push file of the 
+library with your pre-push file. Because of security issues, composer doesn't 
+executes post install scripts of dependencies, so you will have to add
+those scripts to your composer.json. Please copy the [post install script](https://github.com/danielpopdan/drupal-coding-standards/blob/master/scripts/composer/post-install.sh)
+to scripts/composer directory of your Drupal project. 
+
+```
+#!/bin/sh
+
+# Symlink the git pre-push hook to its destination.
+if [ ! -h ".git/hooks/pre-push" ] ; then
+  ln -s "../../vendor/drupal-pfrenssen/phpcs-pre-push/pre-push" ".git/hooks/pre-push"
+  vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
+fi
+```
+
+After that you will have to make this script file executable.
+
+```
+chmod u+x scripts/composer/post-install.sh
+```
+
+After that, please add the script to your composer.json file.
+ 
+```
+"scripts": {
+    "post-install-cmd": "scripts/composer/post-install.sh"
+}
+```
+
 
 **`scripts/composer/post-install.sh`**
 

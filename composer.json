@@ -5,8 +5,5 @@
   "description": "Creates a pre-push git hook that checks the Drupal coding standards.",
   "require": {
     "drupal/coder": "^7.2"
-  },
-  "scripts": {
-    "post-install-cmd": "/scripts/composer/post-install.sh"
   }
 }
