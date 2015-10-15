@@ -39,13 +39,7 @@
     <exclude-pattern>update.php</exclude-pattern>
     <exclude-pattern>xmlrpc.php</exclude-pattern>
     <!-- Exclude features generated files -->
-    <exclude-pattern>*.features.inc</exclude-pattern>
-    <exclude-pattern>*.context.inc</exclude-pattern>
-    <exclude-pattern>*.features.field_base.inc</exclude-pattern>
-    <exclude-pattern>*.features.field_instance.inc</exclude-pattern>
-    <exclude-pattern>*.features.taxonomy.inc</exclude-pattern>
-    <exclude-pattern>*.features.fe_block_settings.inc</exclude-pattern>
-    <exclude-pattern>*.features.filter.inc</exclude-pattern>
+    <exclude-pattern>*.features.*</exclude-pattern>
     <exclude-pattern>*.field_group.inc</exclude-pattern>
     <exclude-pattern>*.views_default.inc</exclude-pattern>
     <exclude-pattern>*.strongarm.inc</exclude-pattern>
