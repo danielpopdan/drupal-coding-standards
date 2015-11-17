@@ -28,7 +28,12 @@ while ($commit = trim(fgets(STDIN))) {
     $$argument = escapeshellcmd($$argument);
   }
 
-  $command = "git diff-tree --no-commit-id --name-only -r '$local_sha' '$remote_sha'";
+  $command = "git diff-tree --no-commit-id --name-only -r '$local_sha' ";
+  // Check if it is not a new branch to get just the last commits.
+  if ($remote_sha != SHA1_EMPTY) {
+    $command .= "'$remote_sha'";
+  }
+
   $file_list = array_merge($file_list, explode("\n", `$command`));
 }
 
