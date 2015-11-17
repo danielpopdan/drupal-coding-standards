@@ -29,7 +29,7 @@ while ($commit = trim(fgets(STDIN))) {
   }
 
   $command = "git diff-tree --no-commit-id --name-only -r '$local_sha' ";
-  // Check if it is not a new branch to get just the las commits.
+  // Check if it is not a new branch to get just the last commits.
   if ($remote_sha != SHA1_EMPTY) {
     $command .= "'$remote_sha'";
   }
